@@ -9,17 +9,26 @@ class Location extends StatefulWidget{
 }
 
 class _LocationState extends State <Location>{
+  void getData(){
+
+    Future.delayed(Duration(seconds: 2),(){
+      print("reqdata");
+    });
+
+    print("state afta future delayed");
+  }
+  @override
+  void initState(){
+    super.initState();
+    print("Inits state ran");
+    getData();
+  }
   @override
   Widget build(BuildContext context){
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: (){
-              Navigator.pushNamed(context, '/home');
-            },
-            icon: Icon(Icons.arrow_back_ios),
-          ),
+          title: Text("Choose Location"),
         ),
         body: Center(
           child: Text("Select Location"),
